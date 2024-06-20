@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        a=parseInt(prompt("Enter number 1"));
+        b=prompt("");
+        c=parseInt(prompt("Enter number 2"));
+        if(b=='+')
+        {
+            alert(a+c);
+        }
+        else if(b=='-')
+        {
+            alert(a-b);
+        }
+        else if(b=='/')
+        {
+            if(a||c==0)
+            {
+                alert("invalid input");
+            }
+            else
+            {
+                alert(a/b);
+            }
+        }
+        else if(b=='*')
+        {
+            alert(a*b);
+        }
+        else 
+        {
+            alert("Please check your input");
+        }
+    </script>
+</body>
+</html>
