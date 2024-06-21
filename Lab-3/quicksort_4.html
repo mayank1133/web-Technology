@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sorting</title>
+</head>
+<body>
+    <script>
+        function quickSort(arr, left, right) {
+    if (arr.length <= 1) return arr; 
+    if (left < right) {
+        let pivotIndex = partition(arr, left, right); 
+        quickSort(arr, left, pivotIndex - 1); 
+        quickSort(arr, pivotIndex + 1, right);
+    }
+    return arr;
+}
+
+
+function partition(arr, left, right) {
+    let pivot = arr[right]; 
+    let i = left - 1; 
+
+    for (let j = left; j < right; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+
+    return i + 1; 
+}
+
+function readArrayFromInput() {
+    let input = prompt("Enter elements of the array separated by spaces:");
+    let arr = input.split(" ").map(Number);
+    return arr;
+}
+
+function main() {
+    let arr = readArrayFromInput();
+    document.write("Original array:", arr"<br>");
+    
+    arr = quickSort(arr, 0, arr.length - 1);
+    
+    document.write("Sorted array:", arr);
+}
+
+main();
+
+    </script>
+</body>
+</html>
