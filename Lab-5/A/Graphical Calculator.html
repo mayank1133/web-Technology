@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Graphical Calculator</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            background-color:rgba(239, 248, 236, 0.953);
+            border-radius: 5px;
+
+        }
+        td{
+            border: 1px solid black;
+            border-radius: 5px;
+
+        }
+        button{
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            background-color: rgb(116, 192, 116);
+            border-radius: 5px;
+        }
+        #display{
+            width: 300px;
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+            border-radius: 5px;
+
+        }
+        #clear{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        #add{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        #subtract{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        #multiply{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        #equals{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <input type="text" id="display">
+            </td>
+            <td>
+                <button id="clear" onclick="clr(value)">C</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="7" value="7" onclick="entry(value)" onkeydown="7">7</button>
+            </td>
+            <td>
+                <button id="8" value="8" onclick="entry(value)" onkeydown="7">8</button>
+            </td>
+            <td>
+                <button id="9" value="9" onclick="entry(value)" onkeydown="7">9</button>
+            </td>
+            <td>
+                <button id="add" value="+" onclick="entry(value)" onkeydown="7">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="4" value="4" onclick="entry(value)" onkeydown="7">4</button>
+            </td>
+            <td>
+                <button id="5" value="5" onclick="entry(value)" onkeydown="7">5</button>
+            </td>
+            <td>
+                <button id="6" value="6" onclick="entry(value)" onkeydown="7">6</button>
+            </td>
+            <td>
+                <button id="subtract" value="-" onclick="entry(value)" onkeydown="7">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="1" value="1" onclick="entry(value)" onkeydown="7">1</button>
+            </td>
+            <td>
+                <button id="2" value="2" onclick="entry(value)" onkeydown="7">2</button>
+            </td>
+            <td>
+                <button id="3" value="3" onclick="entry(value)" onkeydown="7">3</button>
+            </td>
+            <td>
+                <button id="multiply" value="X" onclick="entry(value)" onkeydown="7">*</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="0" value="0" onclick="entry(value)" onkeydown="7">0</button>
+            </td>
+            <td>
+                <button id="decimal" value="."onclick="entry(value)" onkeydown="7">.</button>
+            </td>
+            <td>
+                <button id="divide" value="/" onclick="entry(value)" onkeydown="7">/</button>
+            </td>
+            <td>
+                <button id="equals" onclick="eqls(value)" onkeydown="=">=</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function entry(val)
+        {
+            document.getElementById("display").value += val;
+        }
+        function clr(val)
+        {
+            document.getElementById("display").value = "";
+        }
+        function eqls(val)
+        {
+            document.getElementById("display").value = eval(document.getElementById("display").value);
+        }
+    </script>
+</body>
+</html>
