@@ -1,0 +1,130 @@
+<!-- Write a JavaScript having a list of checkbox and by clicking on checkbox, it should show
+list of selected value in comma separated format. (e.g. list of roll number as checkbox
+value, and display selected roll number in comma separated format) (C) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .checkbox-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        #selected-rolls {
+            margin-top: 20px;
+        }
+        #selected-rolls span {
+            margin-right: 10px;
+        }
+        #selected-rolls span:last-child {
+            margin-right: 0;
+        }
+        #submit-btn {
+            margin-top: 20px;
+        }
+        #submit-btn input[type="submit"] {
+            padding: 10px 20px;
+        }
+        #submit-btn input[type="submit"]:hover {
+            background-color: blue;
+            color: white;
+        }
+        #error-message {
+            color: red;
+            margin-top: 20px;
+        }
+        #error-message span {
+            margin-right: 10px;
+        }
+        #error-message span:last-child {
+            margin-right: 0;
+        }
+        #error-message strong {
+            font-weight: bold;
+        }
+        #error-message button {
+            margin-left: 10px;
+        }
+        #error-message button:hover {
+            background-color: red;
+            color: white;
+        }
+        #error-message button:focus {
+            outline: none;
+        }
+        #error-message button:active {
+            background-color: darkred;
+        }
+        #error-message button:visited {
+            background-color: darkblue;
+        }
+        #error-message button:link {
+            background-color: blue;
+        }
+        #error-message button:hover, #error-message button:focus, #error-message button:active, #error-message button:visited, #error-message button:link {
+            text-decoration: none;
+        }
+        #error-message button:focus {
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+        }
+        </style>
+</head>
+<body>
+    <h1>Checkbox List</h1>
+    <form id="checkbox-form">
+        <div class="checkbox-list">
+            <label for="roll-1">
+                <input type="checkbox" id="roll-1" name="rolls" value="1">
+                Roll 1
+            </label>
+            <label for="roll-2">
+                <input type="checkbox" id="roll-2" name="rolls" value="2">
+                Roll 2
+            </label>
+            <label for="roll-3">
+                <input type="checkbox" id="roll-3" name="rolls" value="3">
+                Roll 3
+            </label>
+            <label for="roll-4">
+                <input type="checkbox" id="roll-4" name="rolls" value="4">
+                Roll 4
+            </label>
+            <label for="roll-5">
+                <input type="checkbox"
+                id="roll-5" name="rolls" value="5">
+                Roll 5
+                </label>
+
+                <button type="submit" id="submit-btn">Submit</button>
+        </div>
+        <div id="selected-rolls"></div>
+        <div id="error-message"></div>
+        <script>
+        const checkboxForm = document.getElementById('checkbox-form');
+        const selectedRolls = document.getElementById('selected-rolls');
+        const errorMessage = document.getElementById('error-message');
+        
+        checkboxForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const checkedBoxes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+            
+            if (checkedBoxes.length === 0) {
+                errorMessage.innerHTML = `<span>Please select at least one roll number.</span>`;
+                return;
+            }
+            
+            const selectedRollNumbers = checkedBoxes.map(checkbox => checkbox.value).join(', ');
+            selectedRolls.innerHTML = `<span>Selected roll numbers:</span> ${selectedRollNumbers}`;
+            errorMessage.innerHTML = '';
+        });
+        </script>
+</body>
+</html>
